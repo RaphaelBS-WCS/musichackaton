@@ -1,161 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+
 body {
     background-color: black;
 }
 
-/***** Arnaud section *****/
+.navbar-brand {
+	font-family: "Kaushan Script";
+	color: white;
+	font-size: 50px;
+}
 
-/*.pil {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    margin: 20px auto;
-    width: 250px;
-    height: 250px;
-    background: yellow;
-    border-radius: 75px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
-    font-weight: lighter;
-    letter-spacing: 2px;
-    transition: 1s box-shadow;
-  }
-  
-  .pil:hover {
-    box-shadow: 0 5px 35px 0px rgba(0,0,0,.1);
-  }
-  
-  .pil:hover::before, .pil:hover::after {
-    display: block;
-    content: '';
-    position: absolute;
-    width: 250px;
-    height: 250px;
-    background: #FDA8CF;
-    border-radius: 75px;
-    z-index: -1;
-    animation: 1s clockwise infinite;
-  }
-  
-  .pil:hover:after {
-    background: #F3CE5E;
-    animation: 2s counterclockwise infinite;
-  }
-  
-  @keyframes clockwise {
-    0% {
-      top: -5px;
-      left: 0;
-    }
-    12% {
-      top: -2px;
-      left: 2px;
-    }
-    25% {
-      top: 0;
-      left: 5px;    
-    }
-    37% {
-      top: 2px;
-      left: 2px;
-    }
-    50% {
-      top: 5px;
-      left: 0;    
-    }
-    62% {
-      top: 2px;
-      left: -2px;
-    }
-    75% {
-      top: 0;
-      left: -5px;
-    }
-    87% {
-      top: -2px;
-      left: -2px;
-    }
-    100% {
-      top: -5px;
-      left: 0;    
-    }
-  }
-  
-  @keyframes counterclockwise {
-    0% {
-      top: -5px;
-      right: 0;
-    }
-    12% {
-      top: -2px;
-      right: 2px;
-    }
-    25% {
-      top: 0;
-      right: 5px;    
-    }
-    37% {
-      top: 2px;
-      right: 2px;
-    }
-    50% {
-      top: 5px;
-      right: 0;    
-    }
-    62% {
-      top: 2px;
-      right: -2px;
-    }
-    75% {
-      top: 0;
-      right: -5px;
-    }
-    87% {
-      top: -2px;
-      right: -2px;
-    }
-    100% {
-      top: -5px;
-      right: 0;    
-    }
-  }*/
+.navbar-brand:hover {
+	color: white;
+}
 
-/**** Mathieu section ****/
+header .nav-link{
+	font-family: "Kaushan Script";
+	color: white;
+	font-size: 50px;
+}
+
+header .nav-link:hover{
+	color: rgb(142, 119, 182);
+}
+
 .cercle1 {
     width: 250px;
     height: 250px;
     border-radius: 50%;
-    background-color: #F94144;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    z-index: 10;
+    margin-top: 5px;
+    background: rgb(251,0,148);
+	background: radial-gradient(circle, rgba(251,0,148,1) 0%, rgba(0,0,255,1) 100%);
 }
 .cercle2 {
     width: 250px;
     height: 250px;
     border-radius: 50%;
-    background-color: #F3722C;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    z-index: 10;
+    margin-top: 5px;
+    background: rgb(0,0,255);
+background: radial-gradient(circle, rgba(0,0,255,1) 0%, rgba(0,255,0,1) 100%);
 }
 .cercle3 {
     width: 250px;
     height: 250px;
     border-radius: 50%;
-    background-color: #F8961E;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    z-index: 10;
+    margin-top: 5px;
+    background: rgb(0,255,0);
+background: radial-gradient(circle, rgba(0,255,0,1) 0%, rgba(255,255,0,1) 100%);
 }
 .cercle4 {
     width: 250px;
     height: 250px;
     border-radius: 50%;
-    background-color: #F9C74F;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    z-index: 10;
+    margin-top: 5px;
+    background: rgb(255,0,0);
+background: radial-gradient(circle, rgba(255,0,0,1) 0%, rgba(251,0,148,1) 100%);
 }
 .cercle5 {
     width: 250px;
     height: 250px;
     border-radius: 50%;
-    background-color: #90BE6D;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    z-index: 10;
+    margin-top: 5px;
+    background: rgb(0,0,255);
+background: radial-gradient(circle, rgba(0,0,255,1) 0%, rgba(0,255,0,1) 100%);
 }
 .cercle6 {
     width: 250px;
     height: 250px;
     border-radius: 50%;
-    background-color: #43AA8B;
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;
+    z-index: 10;
+    margin-top: 5px;
+    background: rgb(255,0,0);
+background: radial-gradient(circle, rgba(255,0,0,1) 0%, rgba(251,0,148,1) 100%);
 }
 
 .select-button {
@@ -172,98 +111,77 @@ body {
   box-sizing: border-box;
 }
 
+/***** Rainbow Effect *****/
 
-.button-container {
+#item-card {
   position: relative;
-  width: 100px;
-  height: 50px;
+  width: 260px;
+  height: 260px;
+  z-index: 5;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 6vh;
-  overflow: hidden;
-  border: 1px solid;
-  font-family: 'Lato', sans-serif;
-  font-weight: 300;
-  font-size: 20px;
-  transition: 0.5s;
-  letter-spacing: 1px;
-  border-radius: 8px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
-.button-container button {
-  width: 101%;
+#item-card > div {
+  position: relative;
+  background: -webkit-gradient(linear, left bottom, left top, from(#000), to(#262626));
+  background: -webkit-linear-gradient(bottom, #000, #262626);
+  background: -o-linear-gradient(bottom, #000, #262626);
+  background: linear-gradient(0deg, #000, #262626);
+  z-index: 2;
+  width: 100%;
   height: 100%;
-  font-family: 'Lato', sans-serif;
-  font-weight: 300;
-  font-size: 11px;
-  letter-spacing: 1px;
-  font-weight: bold;
-  background: #fff;
-  -webkit-mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/nature-sprite.png");
-  mask: url("https://raw.githubusercontent.com/robin-dela/css-mask-animation/master/img/nature-sprite.png");
-  -webkit-mask-size: 2300% 100%;
-  mask-size: 2300% 100%;
-  border: none;
-  color: #000;
-  cursor: pointer;
-  -webkit-animation: ani2 0.7s steps(22) forwards;
-  animation: ani2 0.7s steps(22) forwards;
 }
-.button-container button:hover {
-  -webkit-animation: ani 0.7s steps(22) forwards;
-  animation: ani 0.7s steps(22) forwards;
+#item-card:before, #item-card:after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  background: -webkit-linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  background: -o-linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  background: linear-gradient(45deg, #fb0094, #00f, #0f0, #ff0, #f00, #fb0094, #00f, #0f0, #ff0, #f00);
+  background-size: 400%;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  z-index: 1;
+  -webkit-animation: animation 20s linear infinite;
+  animation: animation 20s linear infinite;
+  border-radius: 50%;
+}
+#item-card:after {
+  -webkit-filter: blur(20px);
+  filter: blur(20px);
+}
+@-webkit-keyframes animation {
+  0% {
+    background-position: 0 0;
+ }
+  50% {
+    background-position: 300% 0;
+ }
+  100% {
+    background-position: 0 0;
+ }
+}
+@keyframes animation {
+  0% {
+    background-position: 0 0;
+ }
+  50% {
+    background-position: 300% 0;
+ }
+  100% {
+    background-position: 0 0;
+ }
 }
 
-.mas {
+/***** Background *****/
+canvas {
+  
   position: absolute;
-  color: #fff;
-  text-align: center;
-  width: 101%;
-  font-family: 'Lato', sans-serif;
-  font-weight: 300;
-  position: absolute;
-  font-size: 11px;
-  margin-top: 17px;
-  overflow: hidden;
-  font-weight: bold;
-}
-@-webkit-keyframes ani {
-  from {
-    -webkit-mask-position: 0 0;
-    mask-position: 0 0;
-  }
-  to {
-    -webkit-mask-position: 100% 0;
-    mask-position: 100% 0;
-  }
-}
-@keyframes ani {
-  from {
-    -webkit-mask-position: 0 0;
-    mask-position: 0 0;
-  }
-  to {
-    -webkit-mask-position: 100% 0;
-    mask-position: 100% 0;
-  }
-}
-@-webkit-keyframes ani2 {
-  from {
-    -webkit-mask-position: 100% 0;
-    mask-position: 100% 0;
-  }
-  to {
-    -webkit-mask-position: 0 0;
-    mask-position: 0 0;
-  }
-}
-@keyframes ani2 {
-  from {
-    -webkit-mask-position: 100% 0;
-    mask-position: 100% 0;
-  }
-  to {
-    -webkit-mask-position: 0 0;
-    mask-position: 0 0;
-  }
+  top: 0;
+  left: 0;
+  background-color: black;
 }
 
