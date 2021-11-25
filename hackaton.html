@@ -1,18 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-	<script src="app.js"></script>
-</head>
-<body>
-	<div id="app">
-		<p></p>
-	</div>	
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="google-signin-client_id"
+      content="766986440587-pvkmrd1nj2rio6ssc81q2kpnlrcd4v5g.apps.googleusercontent.com"
+    />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="hackaton.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+  </head>
+  <body>
+	  <header>
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <img class="logo border bg-light rounded-circle me-3" src="/images/logo-music.png" width="60px"
+      height="60px" alt="logo music">
+			<a class="navbar-brand mx-5" href="#">Sound maker</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			  <span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+			  <ul class="navbar-nav">
+				<li class="nav-item active">
+				  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#">Features</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="#">Pricing</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link disabled" href="#">Disabled</a>
+				</li>
+			  </ul>
+			</div>
+		  </nav>
+		</header>
+    <!--Section circle buttons-->
+    <div id="app">
+		< class="container">
+			<div class="row justify-content-center mt-3">
+				<div class="col-5 text-center">
+					<button class="cercle1" v-on:click=play("a.wav")></button>
+				</div>
+				<div class="col-5 text-center">
+					<button class="cercle2" v-on:click=play("b.wav")></button>
+				</div>
+			</div>
+			<div class="row justify-content-center mt-3">
+				<div class="col-5 text-center">
+					<button class="cercle3" v-on:click=play("c.wav")></button>
+				</div>
+				<div class="col-5 text-center">
+					<button class="cercle4" v-on:click=play("d.wav")></button>
+				</div>
+			</div>
+			<div class="row justify-content-center mt-3">
+				<div class="col-5 text-center">
+					<button class="cercle5" v-on:click=play("e.wav")></button>
+				</div>
+				<div class="col-5 text-center">
+					<button class="cercle6" v-on:click=play("f.wav")></button>
+				</div>
+			</div>
 
+
+
+			<div id="workarea" class="row">
+				<div class="position">
+			  
+				  <div class="svg-wrapper">
+					<svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+					  <rect id="shape" height="40" width="150" />
+					  <div id="text d-flex justify-content-around" v-for="style in styles">
+						<button class="" v-on:click=setStyle("style")><span class="spot"></span>{{ style }}</button>
+					  </div>
+					</svg>
+				  </div>
+				
+		
+			  
+				</div>
+			
+			  </div>
+
+
+
+
+<!--Section circle buttons ends-->
+		<div class="row justify-content-around mt-3">
+			<div v-for="style in styles">
+				<button class="btn btn-primary select-button" v-on:click=setStyle("style")>{{ style }}</button>
+			</div>
+		</div>
+
+
+
+
+
+		
+
+		</div>
+		
+    </div>
+    <script>
+		
+		var app = new Vue({
+			el: "#app",
+			data: {
+				styles: ["batterie", "electro", "jazz"],
+			},
+			methods: {
+				setStyle: function(style) {
+					this.path = "styles/" + style + "/";
+				},
+				play: function(color) {
+					let path = "styles/batterie/"
+					const play = new Audio(path + color)
+					play.play();
+					play.loop = false;
+				}
+			}
+		})
+	</script>
+  </body>
 </html>
