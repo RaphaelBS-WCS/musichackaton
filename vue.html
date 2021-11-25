@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Mon super site en Vue</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!-- Ici, on a installé Vue grace à ce CDN, mais on peut aussi l'installer sur son poste.-->
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+	<!-- la div correspondante à l'élément de mon instance Vue js -->
+	<div id="app">
+		<!-- 
+			Les propriétés en "v-quelquechose" dans les balises sont appelées "directives". Ici:
+			v-model: synchronise ici le contenu de l'input avec une donnée de l'état.
+			v-if et v-for, vous connaissez :-),
+			v-bind: fait le lien entre le props et une donnée de l'état au sein du composant.
+			v-on: event listener, on lui ajoute l'événement à écouter, ici le click sur l'input dans le cas du v-on:click du composant,
+			qui va lancer la méthode passer_commande du composant. Cette dernière va elle même émettre un évenement "commande-passee".
+			Cet évenement "commande passée" sera récupéré par le v-on:commande-passée, qui va lancer la méthode commander de l'instance Vue #app
+			et rajouter le produit, au tableau commande.
+		-->
+		<div class="container">
+			<div class="row">
+				<p class="jumbotron">Login: <input type="text" v-model="user"/> | Vous êtes connectés en tant que {{ user }}.</p>
+			</div>
+			<h1 class="display-4" v-if="commandes.length > 0">Ma Commande:</h1>
+			<div class="row">
+				<!-- utilisation du composant sur mes commmandes -->
+				<fiche-produit v-for="commande in commandes" v-bind:nom="commande" role="recapitulatif"></fiche-produit>
+			</div>				
+			<h1 class="display-4">Produits Disponibles:</h1>
+			<div class="row">
+				<!-- utilisation du composant sur mes produits -->
+				<fiche-produit v-for="produit in produits" v-bind:nom="produit" v-on:commande-passee="commander" role="commande"></fiche-produit>
+			</div>
+		</div>
+	</div>
+	<script>
+		// Composant:
+		Vue.component('fiche-produit', {
+			template:`
+			<div class="col-3">	
+				<p class="jumbotron">{{ nom }}<br>
+					<button v-on:click="passer_commande(nom)" v-if="role == 'commande'">Commander</button>
+				<p>
+			<div>
+			`,
+			props: ['nom', 'role'],
+			methods:{
+				passer_commande: function(produit){
+					this.$emit('commande-passee', produit)
+				}
+			}
+		})
+		// instance de Vue:
+		var app = new Vue({
+			// element:
+			el: "#app",
+			// l'état (state)
+			data: {  
+				user: "Bob",
+				produits: [
+					"pizza",
+					"hamburger",
+					"tacos"
+				],
+				commandes: [],
+			},
+			// méthodes
+			methods:{
+				commander: function(produit) {
+					this.commandes.push(produit);
+				}
+			}
+		})
+	</script>
+</body>
+</html>
