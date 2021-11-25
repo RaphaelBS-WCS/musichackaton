@@ -22,24 +22,23 @@
   <body>
 	<div id="app">
 	<canvas id="c"></canvas>
-	  <header>
-		<nav class="navbar navbar-expand-lg">
-      	<img class="logo borderrounded-circle me-3" src="/images/logo-music.png" width="100px"height="100px" alt="logo music">
-			<a class="navbar-brand mx-5 fw" href="#">Wild Sound Maker</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-			  <span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-			<ul class="navbar-nav mx-5" v-for="style in styles">
-				<li class="nav-item active">
-				  <a class="nav-link" href="#" v-on:click=setStyle(style)>{{ style }}<span class="sr-only">(current)</span></a>
-				</li>
-			</ul>
-			</div>
-		  </nav>
-	  </header>
+		<header>
+			<nav class="navbar navbar-expand-lg">
+			<img class="logo borderrounded-circle me-3" src="/images/logo-music.png" width="100px"height="100px" alt="logo music">
+				<a class="navbar-brand mx-5 fw" href="#">Wild Sound Maker</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+				<ul class="navbar-nav mx-5" v-for="style in styles">
+					<li class="nav-item active">
+					<a class="nav-link" href="#" v-on:click=setStyle(style)>{{ style }}<span class="sr-only">(current)</span></a>
+					</li>
+				</ul>
+				</div>
+			</nav>
+		</header>
     <!--Section circle buttons-->
-
 		<div class="container">
 			<div class="row justify-content-center mt-3">
 				<div class="col-5 text-center justify-content-center">
@@ -90,8 +89,8 @@
 				setStyle: function(style) {
 					path = "styles/" + style + "/";
 				},
-				play: function(color) {
-					let play = new Audio(path + color)
+				play: function(wav) {
+					let play = new Audio(path + wav)
 					play.play();
 					play.loop = false;
 				}
