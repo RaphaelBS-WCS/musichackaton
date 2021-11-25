@@ -24,7 +24,7 @@
 		<nav class="navbar navbar-expand-lg navbar-light bg-light">
       <img class="logo border bg-light rounded-circle me-3" src="/images/logo-music.png" width="60px"
       height="60px" alt="logo music">
-			<a class="navbar-brand mx-5" href="#">Sound maker</a>
+			<a class="navbar-brand mx-5 fw" href="#">Sound maker</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 			  <span class="navbar-toggler-icon"></span>
 			</button>
@@ -48,7 +48,7 @@
 		</header>
     <!--Section circle buttons-->
     <div id="app">
-		< class="container">
+		<div class="container">
 			<div class="row justify-content-center mt-3">
 				<div class="col-5 text-center">
 					<button class="cercle1" v-on:click=play("a.wav")></button>
@@ -73,60 +73,27 @@
 					<button class="cercle6" v-on:click=play("f.wav")></button>
 				</div>
 			</div>
-
-
-
-			<div id="workarea" class="row">
-				<div class="position">
-			  
-				  <div class="svg-wrapper">
-					<svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
-					  <rect id="shape" height="40" width="150" />
-					  <div id="text d-flex justify-content-around" v-for="style in styles">
-						<button class="" v-on:click=setStyle("style")><span class="spot"></span>{{ style }}</button>
-					  </div>
-					</svg>
-				  </div>
-				
-		
-			  
-				</div>
-			
-			  </div>
-
-
-
-
-<!--Section circle buttons ends-->
-		<div class="row justify-content-around mt-3">
-			<div v-for="style in styles">
-				<button class="btn btn-primary select-button" v-on:click=setStyle("style")>{{ style }}</button>
+			<!--Section circle buttons ends-->
+			<div class="button-container" v-for="style in styles">
+				<span class="mas">{{ style }}</span>
+				<button type="button" name="Hover" v-on:click=setStyle(style)>{{ style }}</button>
 			</div>
 		</div>
-
-
-
-
-
-		
-
-		</div>
-		
     </div>
     <script>
 		
 		var app = new Vue({
 			el: "#app",
 			data: {
-				styles: ["batterie", "electro", "jazz"],
+				styles: ["batterie", "electro"],
+				path: "styles/batterie/",
 			},
 			methods: {
 				setStyle: function(style) {
-					this.path = "styles/" + style + "/";
+					path = "styles/" + style + "/";
 				},
 				play: function(color) {
-					let path = "styles/batterie/"
-					const play = new Audio(path + color)
+					let play = new Audio(path + color)
 					play.play();
 					play.loop = false;
 				}
